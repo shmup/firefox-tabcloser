@@ -3,9 +3,8 @@
 all: build
 
 zip:
-	rm tabcloser.zip
 	mkdir -p build
-	zip -r -FS build/tabcloser.zip * --exclude .git --exclude tabcloser.zip --exclude Makefile
+	zip -r -FS build/tabcloser.zip * --exclude build --exclude .git --exclude tabcloser.zip --exclude Makefile
 
 clean:
 	rm -r build
