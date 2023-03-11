@@ -1,0 +1,30 @@
+body,html {
+  margin: 0;
+  padding: 0;
+}
+#wrapper {
+  background: #e5e5e5;
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  padding: 0 10px;
+}
+.side-by-side {
+  display: flex;
+  justify-content: space-between;
+}
+code {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+input {
+  height: 40;
+  padding: 2px 6px;
+  font-size: 1.3em;
+  border: 2px solid black;
+  font-weight: 900;
+}
+h1 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}

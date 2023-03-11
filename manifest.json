@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": " Close",
+  "id": "https://github.com/shmup/firefox-tabcloser",
+  "version": "0.2",
+  "description": "Closes tabs",
+  "author": "Jared Miller <shmup>",
+  "icons": {
+    "48": "icons/close_blue.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "jared@smell.flowers"
+    }
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/close_blue.png",
+      "38": "icons/close_blue.png"
+    },
+    "default_title": " Close",
+    "default_popup": "close.html"
+  },
+  "homepage_url": "https://github.com/shmup/firefox-tabcloser",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus"
+  ]
+}
