@@ -8,8 +8,23 @@
     "amazon.com",
     "ebay.com",
     "twitter.com",
-    "torrentday"
+    "torrentday",
   ];
+
+  function closeDuplicateTabs() {
+    browser.tabs.query({}, function (tabs) {
+      const tabUrls = new Set();
+      for (const tab of tabs) {
+        const tabUrl = tab.url;
+
+        if (tabUrls.has(tabUrl)) {
+          browser.tabs.remove(tab.id);
+        } else {
+          tabUrls.add(tabUrl);
+        }
+      }
+    });
+  }
 
   function closeTabsByKeyword(keywords) {
     if (!keywords || keywords.length === 0) return;
@@ -32,6 +47,9 @@
       closeTabsByKeyword([response.text]);
     } else if (response.event === "mind-wiped") {
       closeTabsByKeyword(mindWipeSites);
+      closeDuplicateTabs();
+    } else if (response.event === "de-dupe") {
+      closeDuplicateTabs();
     }
   });
 
@@ -42,10 +60,6 @@
       closeTabsByKeyword([keyword]);
     },
   });
-
-  const currentTab = (
-    await browser.tabs.query({ currentWindow: true, active: true })
-  )[0];
 
   // Listen for when a new tab is created
   browser.tabs.onCreated.addListener((_tab) => {

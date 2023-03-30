@@ -2,20 +2,17 @@ body,html {
   margin: 0;
   padding: 0;
 }
-#wrapper {
-  background: #e5e5e5;
-  display: flex;
-  width: 500px;
-  flex-direction: column;
-  padding: 0 10px;
+.window {
+  border: 0;
+  width: 400px;
 }
 .side-by-side {
   display: flex;
   justify-content: space-between;
 }
 code {
+  margin: 0 4px 1px 3px;
   font-weight: 700;
-  font-size: 1.2em;
 }
 input {
   height: 40;

@@ -3,18 +3,32 @@
 
   const inputArea = document.getElementById("edit-box");
   const mindWipe = document.getElementById("wipe");
+  const dedupe = document.getElementById("dedupe");
+
+  const submitText = () => {
+    chrome.runtime.sendMessage({
+      event: "text-entered",
+      text: inputArea.value.trim(),
+    });
+    inputArea.value = "";
+  }
 
   inputArea.focus();
   inputArea.addEventListener(
     "keyup",
     (event) => {
       if (event.code === "Enter") {
-        chrome.runtime.sendMessage({
-          event: "text-entered",
-          text: inputArea.value.trim(),
-        });
-        inputArea.value = "";
+        submitText();
       }
+    },
+    false
+  );
+  dedupe.addEventListener(
+    "click",
+    () => {
+      chrome.runtime.sendMessage({
+        event: "de-dupe",
+      });
     },
     false
   );
@@ -23,9 +37,18 @@
     () => {
       chrome.runtime.sendMessage({
         event: "mind-wiped",
-        text: inputArea.value.trim(),
       });
     },
     false
   );
+
+  document
+    .querySelector(".ok")
+    .addEventListener("click", () => submitText());
+
+  document
+    .querySelectorAll(".close")
+    .forEach((closeElem) =>
+      closeElem.addEventListener("click", () => window.close())
+    );
 })();

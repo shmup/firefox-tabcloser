@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link type="text/css" rel="stylesheet" href="close.css">
+    <link type="text/css" rel="stylesheet" href="close.css" />
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
   </head>
   <body>
-    <div id="wrapper">
-      <h1>Tab Closer</h1>
-      <input type="text" placeholder="youtube ebay google.com/search" id="edit-box" required />
-      <p class="side-by-side">
-        <span>Press <code>Enter</code> to close tabs. <code>Esc</code> to cancel.</span>
-        <button id="wipe">Mind Wipe</button>
-      </p>
+    <div class="window" style="width: 400px">
+      <div class="title-bar">
+        <div class="title-bar-text">Tab Closer</div>
+        <div class="title-bar-controls">
+          <button class="close" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <menu role="tablist">
+          <button aria-selected="true" aria-controls="closer">Closer</button>
+        </menu>
+        <article role="tabpanel" id="closer">
+          <fieldset>
+            <legend>Spaced separated pattern(s)</legend>
+            <div class="field-row">
+              <input
+                style="width: 300px"
+                id="edit-box"
+                placeholder="youtube duckduckgo google ebay"
+                autofocus
+                type="text"
+              />
+            </div>
+          </fieldset>
+          <section class="field-row">
+            <label
+              >Press <code>Enter</code> to close tabs. <code>Esc</code> to
+              cancel.</label
+            >
+          </section>
+        </article>
+        <section class="field-row" style="justify-content: space-between">
+          <div>
+            <button id="wipe">Mind Wipe</button>
+            <button id="dedupe">Dedupe</button>
+          </div>
+          <div>
+            <button class="ok">OK</button>
+            <button class="close">Cancel</button>
+          </div>
+        </section>
+      </div>
     </div>
     <script type="application/javascript" src="close.js"></script>
   </body>
