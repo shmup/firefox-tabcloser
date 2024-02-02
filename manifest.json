@@ -1,7 +1,6 @@
 {
   "manifest_version": 2,
-  "name": " Close",
-  "id": "https://github.com/shmup/firefox-tabcloser",
+  "name": "Close",
   "version": "0.2",
   "description": "Closes tabs",
   "author": "Jared Miller <shmup>",
@@ -10,7 +9,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "jared@smell.flowers"
+      "id": "ff-tabcloser@smell.flowers"
     }
   },
   "browser_action": {
