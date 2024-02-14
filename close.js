@@ -10,6 +10,7 @@
     const wipeHistory = await getHistory();
 
     if (!wipeHistory.includes(inputString)) {
+      if (inputString.trim().length === 0) return;
       wipeHistory.push(inputString);
       await browser.storage.local.set({ wipeHistory });
     }
